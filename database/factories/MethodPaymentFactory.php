@@ -4,7 +4,7 @@ namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class RestaurantFactory extends Factory
+class MethodPaymentFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -14,11 +14,7 @@ class RestaurantFactory extends Factory
     public function definition()
     {
         return [
-             'name' => $this->faker->title(),
-              'image' => 'image.jpg',
-              'address' => $this->faker->streetAddress(),
-            'hours' => '8am-11pm'
+
         ];
     }
 }
-

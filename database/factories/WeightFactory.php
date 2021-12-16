@@ -18,7 +18,7 @@ class WeightFactory extends Factory
     public function definition()
     {
         return [
-            'name' => $this->faker->title(),
+            'number' => rand(100 , 500),
             'created_at' => now()
         ];
     }

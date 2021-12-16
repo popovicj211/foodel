@@ -2,10 +2,12 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class RestaurantFood extends Model
 {
+    use HasFactory;
     protected $table = 'restaurants_foods';
     protected $fillable = [
         'res_id' , 'food_id' , 'image'

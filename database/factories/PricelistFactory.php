@@ -21,7 +21,7 @@ class PricelistFactory extends Factory
         return [
             'resfood_id' => RestaurantFood::all()->random()->id,
             'we_id' => Weight::all()->random()->id,
-            'price' => $this->faker->randomFloat(1.00,  10.00),
+            'price' => rand(1.00,  10.00),
             'created_at' => now()
         ];
     }
