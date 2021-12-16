@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Dec 16, 2021 at 04:15 AM
+-- Generation Time: Dec 16, 2021 at 07:40 AM
 -- Server version: 8.0.27-0ubuntu0.20.04.1
 -- PHP Version: 8.0.12
 
@@ -66,6 +66,15 @@ CREATE TABLE `foods` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Dumping data for table `foods`
+--
+
+INSERT INTO `foods` (`id`, `name`, `created_at`, `updated_at`) VALUES
+(1, 'Dr.', '2021-12-16 05:28:03', '2021-12-16 05:28:03'),
+(2, 'Prof.', '2021-12-16 05:28:03', '2021-12-16 05:28:03'),
+(3, 'Miss', '2021-12-16 05:28:03', '2021-12-16 05:28:03');
+
 -- --------------------------------------------------------
 
 --
@@ -92,6 +101,15 @@ CREATE TABLE `kitchen_type` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Dumping data for table `kitchen_type`
+--
+
+INSERT INTO `kitchen_type` (`id`, `name`, `created_at`, `updated_at`) VALUES
+(1, 'Melyna Abshire', '2021-12-16 05:26:45', '2021-12-16 05:26:45'),
+(2, 'Jany Schmidt', '2021-12-16 05:26:45', '2021-12-16 05:26:45'),
+(3, 'Johanna Krajcik', '2021-12-16 05:26:45', '2021-12-16 05:26:45');
+
 -- --------------------------------------------------------
 
 --
@@ -104,6 +122,14 @@ CREATE TABLE `method_payment` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `method_payment`
+--
+
+INSERT INTO `method_payment` (`id`, `name`, `created_at`, `updated_at`) VALUES
+(1, 'Credit card', '2021-12-16 05:22:11', '2021-12-16 05:22:11'),
+(2, 'Paypal', '2021-12-16 05:22:11', '2021-12-16 05:22:11');
 
 -- --------------------------------------------------------
 
@@ -219,6 +245,17 @@ CREATE TABLE `pricelist` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Dumping data for table `pricelist`
+--
+
+INSERT INTO `pricelist` (`id`, `resfood_id`, `we_id`, `price`, `created_at`, `updated_at`) VALUES
+(1, 1, 2, '2714.30', '2021-12-16 05:36:59', '2021-12-16 05:36:59'),
+(2, 2, 1, '5113.20', '2021-12-16 05:36:59', '2021-12-16 05:36:59'),
+(3, 1, 3, '8.00', '2021-12-16 05:39:03', '2021-12-16 05:39:03'),
+(4, 3, 3, '10.00', '2021-12-16 05:39:03', '2021-12-16 05:39:03'),
+(5, 3, 1, '8.00', '2021-12-16 05:39:03', '2021-12-16 05:39:03');
+
 -- --------------------------------------------------------
 
 --
@@ -235,6 +272,15 @@ CREATE TABLE `restaurants` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Dumping data for table `restaurants`
+--
+
+INSERT INTO `restaurants` (`id`, `name`, `image`, `address`, `hours`, `created_at`, `updated_at`) VALUES
+(1, 'Dr.', 'image.jpg', '127 Mara Common Suite 711', '8am-11pm', '2021-12-16 05:01:01', '2021-12-16 05:01:01'),
+(2, 'Miss', 'image.jpg', '555 Keaton Wall Apt. 652', '8am-11pm', '2021-12-16 05:01:01', '2021-12-16 05:01:01'),
+(3, 'Mrs.', 'image.jpg', '96387 Laurianne Unions', '8am-11pm', '2021-12-16 05:01:01', '2021-12-16 05:01:01');
+
 -- --------------------------------------------------------
 
 --
@@ -250,6 +296,15 @@ CREATE TABLE `restaurants_foods` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Dumping data for table `restaurants_foods`
+--
+
+INSERT INTO `restaurants_foods` (`id`, `res_id`, `food_id`, `image`, `created_at`, `updated_at`) VALUES
+(1, 2, 3, 'image.jpg', '2021-12-16 05:30:10', '2021-12-16 05:30:10'),
+(2, 1, 3, 'image.jpg', '2021-12-16 05:30:10', '2021-12-16 05:30:10'),
+(3, 2, 1, 'image.jpg', '2021-12-16 05:30:10', '2021-12-16 05:30:10');
+
 -- --------------------------------------------------------
 
 --
@@ -263,6 +318,15 @@ CREATE TABLE `restaurants_kitchen_type` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `restaurants_kitchen_type`
+--
+
+INSERT INTO `restaurants_kitchen_type` (`id`, `res_id`, `kit_id`, `created_at`, `updated_at`) VALUES
+(1, 3, 2, '2021-12-16 05:34:34', '2021-12-16 05:34:34'),
+(2, 2, 2, '2021-12-16 05:34:34', '2021-12-16 05:34:34'),
+(3, 1, 1, '2021-12-16 05:34:34', '2021-12-16 05:34:34');
 
 -- --------------------------------------------------------
 
@@ -325,7 +389,10 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `username`, `email`, `password`, `address`, `tel`, `role_id`, `email_verified_at`, `verify_token`, `created_at`, `updated_at`) VALUES
 (1, 'joca', 'joca@gmail.com', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'Srpska 25a', '+381 69 999 9999', 1, '2021-12-16 00:48:55', 'c5fe25896e49ddfe996db7508cf00534', '2021-12-16 00:48:55', NULL),
-(2, 'pera', 'pera@gmail.com', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'Bosanska 28c', '+381 65 555 5555', 2, '2021-12-16 00:48:55', '79b7cdcd14db14e9cb498f1793817d69', '2021-12-16 00:48:55', NULL);
+(2, 'pera', 'pera@gmail.com', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'Bosanska 28c', '+381 65 555 5555', 2, '2021-12-16 00:48:55', '79b7cdcd14db14e9cb498f1793817d69', '2021-12-16 00:48:55', NULL),
+(4, 'marisol50', 'brenna.hand@example.com', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', '849 Schaden Pass Suite 465', '1-667-963-3416', 2, '2021-12-16 04:51:48', '401e026eb79e25206dbf53a817d3ad26', '2021-12-16 04:51:48', '2021-12-16 04:51:48'),
+(5, 'ambrose12', 'cierra.rau@example.com', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', '3465 Macy Corner', '+12147658810', 2, '2021-12-16 04:51:48', '319da68a44279b262e3140c6ebfe07a2', '2021-12-16 04:51:48', '2021-12-16 04:51:48'),
+(6, 'gleichner.davonte', 'kflatley@example.org', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', '85607 Bins Ports', '1-412-869-6212', 2, '2021-12-16 04:51:48', 'c92b612c51a0eb55026e4137573486c6', '2021-12-16 04:51:48', '2021-12-16 04:51:48');
 
 -- --------------------------------------------------------
 
@@ -339,6 +406,15 @@ CREATE TABLE `weight` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `weight`
+--
+
+INSERT INTO `weight` (`id`, `number`, `created_at`, `updated_at`) VALUES
+(1, 485, '2021-12-16 05:08:37', '2021-12-16 05:08:37'),
+(2, 372, '2021-12-16 05:08:37', '2021-12-16 05:08:37'),
+(3, 463, '2021-12-16 05:08:37', '2021-12-16 05:08:37');
 
 --
 -- Indexes for dumped tables
@@ -497,7 +573,7 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT for table `foods`
 --
 ALTER TABLE `foods`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `ingredients`
@@ -509,13 +585,13 @@ ALTER TABLE `ingredients`
 -- AUTO_INCREMENT for table `kitchen_type`
 --
 ALTER TABLE `kitchen_type`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `method_payment`
 --
 ALTER TABLE `method_payment`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `migrations`
@@ -545,25 +621,25 @@ ALTER TABLE `personal_access_tokens`
 -- AUTO_INCREMENT for table `pricelist`
 --
 ALTER TABLE `pricelist`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `restaurants`
 --
 ALTER TABLE `restaurants`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `restaurants_foods`
 --
 ALTER TABLE `restaurants_foods`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `restaurants_kitchen_type`
 --
 ALTER TABLE `restaurants_kitchen_type`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `restfood_ingredients`
@@ -575,19 +651,19 @@ ALTER TABLE `restfood_ingredients`
 -- AUTO_INCREMENT for table `roles`
 --
 ALTER TABLE `roles`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `weight`
 --
 ALTER TABLE `weight`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Constraints for dumped tables
